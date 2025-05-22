@@ -17,7 +17,7 @@
 
 .submitButton {
   background-color: #d4a373;
-  color: white;
+  color: white !important;
   padding: 14px;
   border: none;
   border-radius: 5px;
@@ -25,10 +25,11 @@
   cursor: pointer;
   width: 400px;
   transition: background-color 0.3s ease;
+  height: 48px !important;
 }
 
 .submitButton:hover {
-  background-color: #b18253;
+  background-color: #b18253 !important;
 }
 
 .submitButton:disabled {

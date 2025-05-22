@@ -4,7 +4,7 @@ import styles from './style.module.css';
 import LogoHeader from '../headerComponent/LogoHeader';
 import LoginForm from '../loginFormComponent/LoginForm';
 import FooterForm from '../footerComponent/FooterForm';
-import Logo from '../../../../public/images.png';
+import Logo from '../../../public/images.png';
 const LayoutComponent = () => {
   return (
     <div className={styles.layoutComponent}>
