@@ -28,7 +28,10 @@ const LoginForm = () => {
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.ok && data.access_token) {
+        // ✅ Lưu token vào localStorage
+        localStorage.setItem('token', data.access_token);
+
         toast.success('✅ Đăng nhập thành công!', {
           position: 'top-right',
           autoClose: 3000,
@@ -39,9 +42,8 @@ const LoginForm = () => {
         setEmail('');
         setPassword('');
 
-        // Chuyển hướng sau khi toast hiện xong
         setTimeout(() => {
-          router.push('/hello'); // Thay bằng trang bạn muốn chuyển tới
+          router.push('/hello'); // Đổi đường dẫn tùy ý
         }, 3000);
       } else {
         toast.error(`❌ ${data.message || 'Sai tài khoản hoặc mật khẩu.'}`, {
