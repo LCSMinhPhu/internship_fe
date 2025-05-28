@@ -4,18 +4,19 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import ProductForm from '../../../Components/productForm/productForm';
 import { Product } from '../../../types/products';
-
 export default function EditProductPage() {
   const params = useParams();
   const id = params.id as string;
-
+  console.log('Params:', params);
   const [product, setProduct] = useState<Product | null>(null);
   const [error, setError] = useState<string | null>(null);
 
  useEffect(() => {
   const fetchProduct = async () => {
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`);
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const res = await fetch(`${API_URL}/products/${id}`);
+
       if (!res.ok) {
         const errorText = await res.text();
         throw new Error(`HTTP ${res.status}: ${errorText}`);
