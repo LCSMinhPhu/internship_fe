@@ -17,10 +17,19 @@ const HelloPage = () => {
     // if (!verified) {
     //     return <VerificationCodeBox onVerified={() => setVerified(true)} />;
     // }
+   const router = useRouter();
 
+    const handleNavigate = () => {
+        router.push('/product');
+    };
     return (
         <div style={{ padding: '20px' }}>
             <h1>🎉Hello!</h1>   
+               <button 
+                onClick={handleNavigate} 
+            >
+                Go to Product Page
+            </button> 
             {/* <ProductPage></ProductPage>         */}
         </div>
         
